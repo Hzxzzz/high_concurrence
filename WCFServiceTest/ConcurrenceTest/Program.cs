@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Net.Http;
 using System.Threading.Tasks;
 
@@ -14,7 +15,8 @@ namespace ConcurrenceTest
             const string baseurl = "http://localhost:16937/Test/TestBehavior?Id=";
             var client = new HttpClient();
             string[] testPhone = new string[5000];
-            var _dt1 = DateTime.Now;
+            Stopwatch sw = new Stopwatch();
+            sw.Start();
             Parallel.ForEach(testPhone, (data, state, index) =>
             {
                 client.GetAsync(baseurl + 5);
@@ -24,9 +26,8 @@ namespace ConcurrenceTest
                 client.GetAsync(baseurl + 9);
                 Console.WriteLine(string.Format("{0} done", index));
             });
-
-            var _dt2 = DateTime.Now;
-            Console.WriteLine((TimeSpan)(_dt2 - _dt1));
+            sw.Stop();
+            Console.WriteLine(string.Format("总计用时{0}毫秒", sw.ElapsedMilliseconds));
             Console.ReadKey();
         }
     }
