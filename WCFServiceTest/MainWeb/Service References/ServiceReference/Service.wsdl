@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="Service" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:17233/Service.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:17233/Service.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:17233/Service.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/WcfService" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IService_Lister_InputMessage">
+    <wsdl:part name="parameters" element="tns:Lister" />
+  </wsdl:message>
+  <wsdl:message name="IService_Lister_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ListerResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_OrderFormBehavior_InputMessage">
+    <wsdl:part name="parameters" element="tns:OrderFormBehavior" />
+  </wsdl:message>
+  <wsdl:message name="IService_OrderFormBehavior_OutputMessage">
+    <wsdl:part name="parameters" element="tns:OrderFormBehaviorResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_ChangeOrderFormState_InputMessage">
+    <wsdl:part name="parameters" element="tns:ChangeOrderFormState" />
+  </wsdl:message>
+  <wsdl:message name="IService_ChangeOrderFormState_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ChangeOrderFormStateResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetCommodity_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCommodity" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetCommodity_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCommodityResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetOrderFormList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetOrderFormList" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetOrderFormList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetOrderFormListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_StokInit_InputMessage">
+    <wsdl:part name="parameters" element="tns:StokInit" />
+  </wsdl:message>
+  <wsdl:message name="IService_StokInit_OutputMessage">
+    <wsdl:part name="parameters" element="tns:StokInitResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IService">
+    <wsdl:operation name="Lister">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/Lister" message="tns:IService_Lister_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/ListerResponse" message="tns:IService_Lister_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="OrderFormBehavior">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/OrderFormBehavior" message="tns:IService_OrderFormBehavior_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/OrderFormBehaviorResponse" message="tns:IService_OrderFormBehavior_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ChangeOrderFormState">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/ChangeOrderFormState" message="tns:IService_ChangeOrderFormState_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/ChangeOrderFormStateResponse" message="tns:IService_ChangeOrderFormState_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCommodity">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/GetCommodity" message="tns:IService_GetCommodity_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/GetCommodityResponse" message="tns:IService_GetCommodity_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetOrderFormList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/GetOrderFormList" message="tns:IService_GetOrderFormList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/GetOrderFormListResponse" message="tns:IService_GetOrderFormList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="StokInit">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/StokInit" message="tns:IService_StokInit_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/StokInitResponse" message="tns:IService_StokInit_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IService" type="tns:IService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Lister">
+      <soap:operation soapAction="http://tempuri.org/IService/Lister" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="OrderFormBehavior">
+      <soap:operation soapAction="http://tempuri.org/IService/OrderFormBehavior" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ChangeOrderFormState">
+      <soap:operation soapAction="http://tempuri.org/IService/ChangeOrderFormState" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCommodity">
+      <soap:operation soapAction="http://tempuri.org/IService/GetCommodity" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOrderFormList">
+      <soap:operation soapAction="http://tempuri.org/IService/GetOrderFormList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="StokInit">
+      <soap:operation soapAction="http://tempuri.org/IService/StokInit" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Service">
+    <wsdl:port name="BasicHttpBinding_IService" binding="tns:BasicHttpBinding_IService">
+      <soap:address location="http://localhost:17233/Service.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
